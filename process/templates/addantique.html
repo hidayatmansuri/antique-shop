@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Add new Antique Item </h1>
+    <form method="POST">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        <!--<label for="atq_name">Name: </label><br>
+        <input type="text" id="atq_name" name="atq_name"/><br><br>
+        <label for="atq_price">Price(£): </label><br>
+        <input type="text" id="atq_price" name="atq_price"/><br><br>
+        <label for="atq_manu">Manufacture(Year): </label><br>
+        <input type="text" id="atq_manu" name="atq_manu"/><br><br>
+        <label for="atq_desc">Description: </label><br>
+        <input type="text" id="atq_desc" name="atq_desc"/><br><br>
+        <label for="atq_height">Height(mm): </label><br>
+        <input type="text" id="atq_height" name="atq_height"/><br><br>
+        <label for="atq_width">Width(mm): </label><br>
+        <input type="text" id="atq_width" name="atq_width"/><br><br>
+        <label for="atq_depth">Depth(mm): </label><br>
+        <input type="text" id="atq_depth" name="atq_depth"/><br><br>-->
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

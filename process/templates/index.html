@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>The Antique Shop</h1>
+    <a href="add"><button>Add Antique</button></a><br><br>
+    <table>
+        {% for antique in antiques %}
+            <tr>
+                <td><b>Name: </b></td><td><u><form method = "GET" action="edit/{{ antique.id }}">{{antique.name}}</u> <input type="submit" value="Edit"></form></td>
+            </tr>
+            <tr>
+                <td><b>Price(£): </b></td><td>{{antique.price}}</td>
+            </tr>
+            <tr>
+                <td><b>Manufacture (Year): </b></td><td>{{antique.manufacture}}</td>
+            </tr>
+            <tr>
+                <td><b>Description: </b></td><td>{{antique.description}}</td>
+            </tr>
+            <tr>
+                <td><b>Height(mm): </b></td><td>{{antique.height}}</td>
+            </tr>
+            <tr>
+                <td><b>Width(mm): </b></td><td>{{antique.width}}</td>
+            </tr>
+            <tr>
+                <td><b>Depth(mm): </b></td><td>{{antique.depth}}</td>
+            </tr>
+            <tr>
+                <td>---------------</td><td>-----------------------------------------</td>
+            </tr>
+        {% empty %}
+        <p>You have nothing to get done</p>
+        {% endfor %}
+        
+    </table>
+    
+    
+</body>
+</html>
