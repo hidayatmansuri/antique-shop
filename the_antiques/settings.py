@@ -26,7 +26,8 @@ SECRET_KEY = 'j8(4+w$#2*c%i350@97+3f$e(#2p!x5id$%bz86w(!q!3b4+5@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['e3744d40affa40b3b7053776376b7b11.vfs.cloud9.eu-west-1.amazonaws.com']
+ALLOWED_HOSTS = ['e3744d40affa40b3b7053776376b7b11.vfs.cloud9.eu-west-1.amazonaws.com',
+                'antique-store.herokuapp.com']
 
 
 # Application definition
