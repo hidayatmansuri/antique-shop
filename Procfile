@@ -1,1 +1,1 @@
-web: gunicorn django_process.wsgi:application
+web: gunicorn the_antiques.wsgi:application
