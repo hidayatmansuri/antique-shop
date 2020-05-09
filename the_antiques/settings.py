@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import dj_database_url
 
+if os.environ.get('DEVELOPMENT'):
+    development = True
+else:
+    development = False
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,12 +29,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'j8(4+w$#2*c%i350@97+3f$e(#2p!x5id$%bz86w(!q!3b4+5@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = development
 
 #ALLOWED_HOSTS = ['e3744d40affa40b3b7053776376b7b11.vfs.cloud9.eu-west-1.amazonaws.com',
 #                'antique-store.herokuapp.com']
 
-ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'),
+ALLOWED_HOSTS = ['e3744d40affa40b3b7053776376b7b11.vfs.cloud9.eu-west-1.amazonaws.com',
                 os.environ.get('HOSTNAME')]
 
 # Application definition
@@ -78,15 +83,18 @@ WSGI_APPLICATION = 'the_antiques.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+if development:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}    
 
 #DATABASES = {'default': dj_database_url.parse("postgres://rjnxazgrnjhzib:adae5aeee2c1301ba962819410d6fe3229eaf3b0a28ae304a142c53d9f5a4121@ec2-54-195-247-108.eu-west-1.compute.amazonaws.com:5432/d8hjf7el7m4v7t")}
-DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+
 
 host = os.environ.get('SITE_HOST')
 if host:
